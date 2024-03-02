@@ -1,8 +1,9 @@
+pkg load signal;
 clc
 clear all
 close all
 
-pkg load signal;
+
 
 A1 = 6;
 A2 = 2;
@@ -28,8 +29,8 @@ x3_t = A3*cos(2*pi*f3*t);
 s_t = x1_t + x2_t + x3_t;
 
 %Transformando no Dominio da Frequencia
-X_f = fft(s_t)/length(s_t);
-X_f = fftshift(X_f);
+S_f = fft(s_t)/length(s_t);
+S_f = fftshift(S_f);
 passo_f = 1/t_final;
 f = [-fs/2:passo_f:fs/2];
 
@@ -40,8 +41,12 @@ xlim([0 3*T])
 
 % Plot no Dominio da Frequencia
 figure(2)
-plot(f,abs(X_f))
+plot(f,abs(S_f))
 grid on
 
+%Potencia media do sinal S
 Pot_media_s = norm(s_t)
 
+% Plot Densidade Espectral de Potencia do sinal
+figure(3)
+pwelch(s_t)

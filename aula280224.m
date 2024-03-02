@@ -27,7 +27,7 @@ filtro_pb = [zeros(1, 48e3) ones(1,4001) zeros(1, 48e3)];
 ordem = 80;
 f_cut = 1000;
 
-filtro_pb_t = fir1(ordem, (f_cut*2)/fs);
+filtro_pb_t = fir1(ordem, [(f_cut*2)/fs);
 
 
 
