@@ -44,4 +44,24 @@
   A Figura 3 mostra o sinal $S(f)$ de forma mais proxima ao real, pois não é um impulso preciso na frequência. 
 = Exercicio 02 
 
+/*
+#figure(
+  image("./Figuras/DomTemp.svg",width:80%),
+);*/
+
+/*
+#figure(
+  image("./Figuras/DomTemp.svg",width:80%),
+);*/
+
+/*
+#figure(
+  image("./Figuras/DomTemp.svg",width:80%),
+);*/
+
+/*
+#figure(
+  image("./Figuras/DomTemp.svg",width:80%),
+);*/
+
 = Exercicio 03
