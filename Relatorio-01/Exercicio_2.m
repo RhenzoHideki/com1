@@ -47,32 +47,16 @@ filtro_pb = [zeros(1, 46e3) ones(1,8001) zeros(1, 46e3)];
 filtro_pa = [ones(1, 42e3) zeros(1,16001) ones(1, 42e3)];
 filtro_pf = [zeros(1, 42e3) ones(1,4000) zeros(1,8001) ones(1,4000) zeros(1, 42e3)];
 
-ordem = 1000;
-f1_cut = 2000;
-f2_cut = 4000;
 
-S_pb_f = S_f .* filtro_pb;
-S_pa_f = S_f .* filtro_pa;
-S_pf_f = S_f .* filtro_pf;
+S_pb_f = (S_f .* filtro_pb);
+S_pa_f = (S_f .* filtro_pa);
+S_pf_f = (S_f .* filtro_pf);
 
-S_pb_f = ifftshift(S_pb_f);
-S_pa_f = ifftshift(S_pa_f);
-S_pf_f = ifftshift(S_pf_f);
+S_pb_t = fft(fftshift(S_pb_f))*length(S_pb_f);
+S_pa_t = fft(fftshift(S_pa_f))*length(S_pa_f);
+S_pf_t = fft(fftshift(S_pf_f))*length(S_pf_f);
 
-S_pb_t = fft(S_pb_f)/length(S_pb_f);
-S_pa_t = fft(S_pa_f)/length(S_pa_f);
-S_pf_t = fft(S_pf_f)/length(S_pf_f);
-
-
-##filtro_pb_t = fir1(ordem, (f1_cut*2)/fs);
-##filtro_pa_t = fir1(ordem,'high', (f2_cut*2)/fs);
-##filtro_pf_t = fir1(ordem, [(f1_cut*2)/fs (f2_cut*2)/fs]);
-##
-##y1_t = filter(filtro_pa_t, 1 ,s_t);
-##y2_t = filter(filtro_pb_t, 1 ,s_t);
-##y3_t = filter(filtro_pf_t, 1 ,s_t);
-
-
+%-------------------------------------------------------------------------------------------
 %Transformando no Dominio da Frequencia
 figure(1);
 S_f = fft(s_t)/length(s_t);
@@ -131,6 +115,7 @@ plot(f,abs(S_f),"k")
 title("S(f)");
 xlim([-2*f3 2*f3])
 
+%-------------------------------------------------------------------------------------------
 %Filtros
 figure(3)
 subplot(3,1,1);
@@ -149,31 +134,32 @@ plot(f,filtro_pf,"b");
 ylim([0 1.2]);
 title("Filtro Passa Faixa 2kHz-4kHz");
 
-%Sinal Filtrado 
+%-------------------------------------------------------------------------------------------
+%Sinal Filtrado
 figure(4)
-subplot(6,1,1);
+subplot(3,2,1);
 plot(f,S_pb_f,"r");
 xlim([-2*f3 2*f3])
 title("Sinal com Filtro Passa Baixa na Frequencia");
-subplot(6,1,2);
+subplot(3,2,2);
 plot(t,S_pb_t,"r");
 xlim([0 3*T])
 title("Sinal com Filtro Passa Baixa no Tempo");
 
-subplot(6,1,3);
+subplot(3,2,3);
 plot(f,S_pa_f,"r");
 xlim([-2*f3 2*f3])
 title("Sinal com Filtro Passa Alta na Frequencia");
-subplot(6,1,4);
+subplot(3,2,4);
 plot(t,S_pa_t,"r");
 xlim([0 3*T])
 title("Sinal com Filtro Passa Alta no Tempo");
 
-subplot(6,1,5);
+subplot(3,2,5);
 plot(f,S_pf_f,"r");
 xlim([-2*f3 2*f3])
 title("Sinal com Filtro Passa Baixa na Frequencia");
-subplot(6,1,6);
+subplot(3,2,6);
 plot(t,S_pf_t,"r");
 xlim([0 3*T])
 title("Sinal com Filtro Passa Baixa no Tempo");
