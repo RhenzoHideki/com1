@@ -22,46 +22,45 @@
  + Utilizando a função 'pwelch', plote a Densidade Espectral de Potência do sinal 's'.  
 
   == Resultados
-/*
+
 #figure(
-  image("./Figuras/DomTemp.svg",width:80%),
-);*/
+  image("./Figuras/E1/DomTemp.svg",width:130%),
+);
 
   A Figura 1 mostra 4 gráficos. Esses sendo os 3 sinal no dominio do tempo com amplitudes de 6V, 2V e 4V e frequências de 1, 3 e 5 kHz, respectivamente e por fim a soma dos 3 cossenos
 
-/*
+
 #figure(
-  image("./Figuras/DomFreq.svg",width:80%),
+  image("./Figuras/E1/DomFreq.svg",width:130%),
 );
-*/
+
   A Figura 2 mostra 4 gráficos. Esses sendo os 3 sinal no dominio da frequência com amplitudes de 6V, 2V e 4V e frequências de 1, 3 e 5 kHz, respectivamente e por fim a soma dos 3 cossenos  
-/*
+
 #figure(
-  image("./Figuras/pwelch.svg",width:80%),
+  image("./Figuras/E1/pwelch.svg",width:90%),
 );
-*/
+
   
   A Figura 3 mostra o sinal $S(f)$ de forma mais proxima ao real, pois não é um impulso preciso na frequência. 
 = Exercicio 02 
 
-/*
-#figure(
-  image("./Figuras/DomTemp.svg",width:80%),
-);*/
 
-/*
 #figure(
-  image("./Figuras/DomTemp.svg",width:80%),
-);*/
+  image("./Figuras/E2/DomTemp.svg",width:130%),
+);
 
-/*
-#figure(
-  image("./Figuras/DomTemp.svg",width:80%),
-);*/
 
-/*
 #figure(
-  image("./Figuras/DomTemp.svg",width:80%),
-);*/
+  image("./Figuras/E2/DomFreq.svg",width:130%),
+);
+
+#figure(
+  image("./Figuras/E2/Filtros.svg",width:130%),
+);
+
+#figure(
+  image("./Figuras/E2/SinaisFiltrados.svg",width:130%),
+);
+
 
 = Exercicio 03
