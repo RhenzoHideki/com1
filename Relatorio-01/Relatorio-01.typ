@@ -21,46 +21,95 @@
 
  + Utilizando a função 'pwelch', plote a Densidade Espectral de Potência do sinal 's'.  
 
-  == Resultados
-
+#pagebreak()
+== Resultados Exercicio 01
 #figure(
   image("./Figuras/E1/DomTemp.svg",width:130%),
+  caption: [
+     Sinais gerados no dominio do tempo \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
 );
 
-  A Figura 1 mostra 4 gráficos. Esses sendo os 3 sinal no dominio do tempo com amplitudes de 6V, 2V e 4V e frequências de 1, 3 e 5 kHz, respectivamente e por fim a soma dos 3 cossenos
+  Na Figura 1 são apresentados os 4 gráficos que foram pedidos pela questão. Estes estão sendo apresentados no dominio do tempo.
+  Os graficos são cossenos de 6V , 2V e 4V e frequências de 1, 3 e 5 kHz , respectivamente, além do sinal $s(t)$ que foi gerado a partir da soma dos 3 cossenos anteriores 
 
 
 #figure(
   image("./Figuras/E1/DomFreq.svg",width:130%),
+  caption: [
+     Sinais gerados no dominio da frequência \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
 );
 
-  A Figura 2 mostra 4 gráficos. Esses sendo os 3 sinal no dominio da frequência com amplitudes de 6V, 2V e 4V e frequências de 1, 3 e 5 kHz, respectivamente e por fim a soma dos 3 cossenos  
-
+  Na Figura 2 são apresentados os 4 sinais anteriores da Figura 1 , porém agora foram apresentados no dominio da frequência. É possível ver de forma mais clara que o 4 sinal ($s(t)$) é o resultado da soma dos outros 3 sinais ,apenas analizando as componentes da frequencia.
 #figure(
   image("./Figuras/E1/pwelch.svg",width:90%),
+    caption: [
+     Sinais gerados com a função pwelch \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
 );
 
   
-  A Figura 3 mostra o sinal $S(f)$ de forma mais proxima ao real, pois não é um impulso preciso na frequência. 
-= Exercicio 02 
+  A Figura 3 mostra o resultado da função pwelch, esta que retorna a densidade espectral de potência do sinal. Assim mostrando onde está a distribuição de energia do sinais nas frequência.
 
+#pagebreak()
+= Exercicio 02
++ Gerar um sinal s(t) composto pela somatória de 3 senos com amplitudes de 5V, 5/3V e 1V e frequências de 1, 3 e 5 kHz, respectivamente.
++ Plotar em uma figura os três cossenos e o sinal 's ' no domínio do tempo e da frequência
++ Gerar 3 filtros ideais:
+  + Passa baixa (frequência de corte em 2kHz)
+  + Passa alta (banda de passagem acima de 4kHz)
+  + Passa faixa (banda de passagem entre 2 e 4kHz)
++ Plotar em uma figura a resposta em frequência dos 3 filtros
++ Passar o sinal s(t) através dos 3 filtros e plotar as saídas, no domínio do tempo e da frequência, para os 3 casos
 
+#pagebreak()
+== Resultados Exercicio 02
 #figure(
   image("./Figuras/E2/DomTemp.svg",width:130%),
+    caption: [
+     Sinais gerados no dominio do tempo \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+  
 );
 
 
 #figure(
   image("./Figuras/E2/DomFreq.svg",width:130%),
+    caption: [
+     Sinais gerados no dominio da frequência \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
 );
 
 #figure(
   image("./Figuras/E2/Filtros.svg",width:130%),
+    caption: [
+     Graficos dos Filtros  \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+
 );
 
 #figure(
-  image("./Figuras/E2/SinaisFiltrados.svg",width:130%),
+  image("./Figuras/E2/SinaisFiltrados.svg",width:130%), 
+    caption: [
+     Sinais Filtrados em ambos dominios \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+
 );
 
-
+#pagebreak()
 = Exercicio 03
++ Gerar um vetor representando um ruído com distribuição normal utilizando a função 'randn' do matlab. Gere 1 segundo de ruído considerando um tempo de amostragem de 1/10k.
++ Plotar o histograma do ruído para observar a distribuição Gaussiana. Utilizar a função 'histogram'
++ Plotar o ruído no domínio do tempo e da frequência Utilizando a função 'xcorr', plote a função de autocorrelação do ruído.
++ Utilizando a função 'filtro=fir1(50,(1000*2)/fs)', realize uma operação de filtragem passa baixa do ruído. Para visualizar a resposta em frequência do filtro projetado, utilize a função 'freqz'.
++ Plote, no domínio do tempo e da  frequência, a saída do filtro e o histograma do sinal filtrado
+#pagebreak()
+== Resultados Exercicio 03  
