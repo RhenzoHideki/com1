@@ -113,3 +113,56 @@
 + Plote, no domínio do tempo e da  frequência, a saída do filtro e o histograma do sinal filtrado
 #pagebreak()
 == Resultados Exercicio 03  
+#figure(
+  image("./Figuras/E3/hist.svg",width:130%), 
+    caption: [
+     Histograma gerado pelo randn \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+
+#figure(
+  image("./Figuras/E3/domTempFreq.svg",width:130%), 
+    caption: [
+     Sinais Filtrados em ambos dominios \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+
+);
+
+
+#figure(
+  image("./Figuras/E3/xcorr.svg",width:130%), 
+    caption: [
+     Grafico gerado pelo xcorr \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+
+);
+#figure(
+  image("./Figuras/E3/filtro.svg",width:130%), 
+    caption: [
+     Gráfico dos filtros \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+
+);
+
+#figure(
+  image("./Figuras/E3/SinalFiltrado.svg",width:130%), 
+    caption: [
+     Sinal Filtrado \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+
+);
+
+#figure(
+  image("./Figuras/E3/histFiltrado.svg",width:130%), 
+    caption: [
+     Histograma do sinal filtrado \ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+
+);
+
