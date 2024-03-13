@@ -76,6 +76,9 @@
   supplement: "Figura"
   
 );
+  Na Figura 4 são apresentados os 4 gráficos que foram pedidos pela questão. Estes estão sendo apresentados no dominio do tempo.
+  Os graficos são cossenos de 5V , $5/3$V e 1V e frequências de 1, 3 e 5 kHz , respectivamente, além do sinal $s(t)$ que foi gerado a partir da soma dos 3 cossenos anteriores 
+
 
 
 #figure(
@@ -86,6 +89,8 @@
   supplement: "Figura"
 );
 
+  Na Figura 5 são apresentados os 4 sinais anteriores da Figura 4 , porém agora foram apresentados no dominio da frequência. É possível ver de forma mais clara que o 4 sinal ($s(t)$) é o resultado da soma dos outros 3 sinais ,apenas analizando as componentes da frequencia.
+
 #figure(
   image("./Figuras/E2/Filtros.svg",width:130%),
     caption: [
@@ -94,6 +99,7 @@
   supplement: "Figura"
 
 );
+Na Figura 6 são apresentados 3 filtros , em vermelho um filtro passa baixa de 2kHz , em verde um filto passa alta de 4kHz e por fim em azul um filtro passa faixa de 2 a 4 kHz.
 
 #figure(
   image("./Figuras/E2/SinaisFiltrados.svg",width:130%), 
@@ -101,8 +107,8 @@
      Sinais Filtrados em ambos dominios \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
-
 );
+Na Figura 7 é apresentado o sinal s(t) filtrado pelos 3 filtros anteriores , cada um sendo mostrado a o resultado no dominio da frequencia a esquerda e no dominio do tempo a direita
 
 #pagebreak()
 = Exercicio 03
@@ -111,6 +117,7 @@
 + Plotar o ruído no domínio do tempo e da frequência Utilizando a função 'xcorr', plote a função de autocorrelação do ruído.
 + Utilizando a função 'filtro=fir1(50,(1000*2)/fs)', realize uma operação de filtragem passa baixa do ruído. Para visualizar a resposta em frequência do filtro projetado, utilize a função 'freqz'.
 + Plote, no domínio do tempo e da  frequência, a saída do filtro e o histograma do sinal filtrado
+
 #pagebreak()
 == Resultados Exercicio 03  
 #figure(
@@ -120,6 +127,7 @@
   ],
   supplement: "Figura"
 );
+Figura 8 mostra o histograma gerado por um randn , com intuito de simular um ruido branco.
 
 #figure(
   image("./Figuras/E3/domTempFreq.svg",width:130%), 
@@ -129,6 +137,7 @@
   supplement: "Figura"
 
 );
+A figura 9 mostra o ruido branco gerado pelo rand , tanto no dominio do tempo quanto no dominio da frequencia.
 
 
 #figure(
@@ -137,8 +146,9 @@
      Grafico gerado pelo xcorr \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
-
 );
+Na figura 10 é mostrado o resultado gerado pela função xcorr, seu intuito é de calcular a relação cruzada do sinal.
+
 #figure(
   image("./Figuras/E3/filtro.svg",width:130%), 
     caption: [
@@ -147,6 +157,7 @@
   supplement: "Figura"
 
 );
+Figura 11 mostra como é o comportamento do filtro passa baixa que geramos com base no comando 'filtro=fir1(50,(1000*2)/fs)'. 
 
 #figure(
   image("./Figuras/E3/SinalFiltrado.svg",width:130%), 
@@ -157,6 +168,8 @@
 
 );
 
+Na Figura 12 é possivel ver o ruido branco no dominio do tempo e da frequência após aplicarmos o filtro passa baixo no ruido.
+
 #figure(
   image("./Figuras/E3/histFiltrado.svg",width:130%), 
     caption: [
@@ -165,4 +178,4 @@
   supplement: "Figura"
 
 );
-
+A figura 13 é um histograma do ruido branco após ser aplicado o filtro.
