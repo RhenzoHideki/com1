@@ -10,10 +10,19 @@
     doc,
   )
 = Introdução
-Este labotatório tem como objetivo revisar os conceitos de sinais de espectro. Nos exercicios apresentados foram apresentados ideias de composição de sinais , mudança de dominio do tempo para frequencia e a inversa, a utilização de filtros ideais e reais.
+Este labotatório tem como objetivo revisar os conceitos de sinais de espectro. Tem-se como objetivo de entender e analisar os sinais nos dominios do tempo e frequência. 
+
+Nos exercicios apresentados foram apresentados ideias de composição e manipulação de sinais , mudança de dominios do tempo e da frequência, e a utilização de filtros ideais e reais para a recuperação dos sinais originais.
 
 = Desenvolvimento
-Foram passados 3 exercicios para serem feitos, com dificuldade progressivas. Primeiro apenas aprendemos a fazer uma composição de um sinal. Segundo utilizamos do conhecimento do primeiro e aplicamos um filtro no sinal para recuperar os diferentes sinals misturados. Por fim o terceiro exercicio usamos um ruido branco e filtramos ele com um filtro real.
+== Conceitos teóricos utilizados no relatório
+A utilização de conceitos básicos de sinais e sistemas, utilizando sistmeas lineares e invariantes no tempo. A analise de sinais tanto no dominio do tempo quanto na frequencia e as suas devidas manipulações.
+
+A aplicação da Transformada de Fourier permite a análise de sinais no domínio da frequência, decompondo um sinal em suas componentes de frequência e possibilitando a compreensão da distribuição espectral do sinal.
+
+A autocorrelação desempenha um papel na análise ao identificar padrões temporais e calcular a similaridade entre diferentes partes do sinal.
+
+Os filtros são utilizados para observar características e aplicações dos sinais, modificando suas características, atenuando certas frequências ou realçando outras.
 
 == Exercicio 01
  Comando da questão:
@@ -187,4 +196,8 @@ Na Figura 12 é possivel ver o ruido branco no dominio do tempo e da frequência
 A figura 13 é um histograma do ruido branco após ser aplicado o filtro.   
 
 = Conclusão
-Nesse labotatório possibilitou tanto a revisão conceitual de assuntos relacionados a sinais e o processamentos deles , quanto a revisar e aprender novas funções do matlab/octave.
+Neste laboratório, foram explorados conceitos fundamentais de sinais e sistemas, com a aplicação prática na análise e manipulação de sinais nos domínios do tempo e da frequência. Através dos exercícios realizados, foi possível compreender a composição de sinais complexos, a importância da amostragem e taxa de amostragem, bem como o papel crucial da Transformada de Fourier na análise espectral de sinais.
+
+Os resultados obtidos nos exercícios demonstraram a aplicação prática dos conceitos teóricos estudados. A visualização dos sinais no domínio do tempo e da frequência, juntamente com a análise da densidade espectral de potência, proporcionou uma compreensão mais profunda da distribuição de energia dos sinais nas diferentes frequências. A aplicação dos filtros ideais e a análise dos sinais filtrados destacaram a importância dos filtros na manipulação e recuperação de sinais originais, ressaltando a necessidade de escolher o filtro adequado para cada aplicação.
+
+Desta forma o laboratório foi essencial para solidificar o entendimento sobre sinais e sistemas, proporcionando uma base sólida para a análise e processamento de sinais em diversas aplicações. O conhecimento adquirido neste laboratório é fundamental para futuros estudos e aplicações práticas no campo da engenharia de sistemas e processamento de sinais.

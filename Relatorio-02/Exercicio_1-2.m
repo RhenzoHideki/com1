@@ -24,3 +24,40 @@ c_t = Ac * cos(2*pi*fc*t);
 
 s_t = m_t .* c_t;
 r_t = s_t .* c_t;
+
+dsb_tc = Ac *(1 + m_t) .* cos(2*pi*fc*t);
+
+
+
+
+subplot(411);
+plot(t, m_t);
+title('Message Signal');
+xlabel('Time');
+ylabel('Amplitude');
+xlim([0 3*T])
+
+
+subplot(412);
+plot(t, c_t);
+title('Carrier Signal');
+xlabel('Time');
+ylabel('Amplitude');
+xlim([0 3*T])
+
+
+subplot(413);
+plot(t, dsb_tc);
+title('DSB-TC Modulated Signal');
+xlabel('Time');
+ylabel('Amplitude');
+xlim([0 3*T])
+
+
+subplot(414);
+plot(t, s_t);
+title('DSB-SC Modulated Signal');
+xlabel('Time');
+ylabel('Amplitude');
+xlim([0 3*T])
+
