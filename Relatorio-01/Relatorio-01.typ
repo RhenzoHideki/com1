@@ -2,15 +2,20 @@
 
 
   #show: doc => article(
-    title: "Relatorio 01",
-    subtitle: "Processos Estocásticos (PRE029006)",
+    title: "Laboratorio 01",
+    subtitle: "	Sistemas de comunicação I (COM029007)",
     // Se apenas um autor colocar , no final para indicar que é um array
     authors:("Rhenzo Hideki Silva Kajikawa",),
     date: "20 de Setembro de 2023",
     doc,
   )
+= Introdução
+Este labotatório tem como objetivo revisar os conceitos de sinais de espectro. Nos exercicios apresentados foram apresentados ideias de composição de sinais , mudança de dominio do tempo para frequencia e a inversa, a utilização de filtros ideais e reais.
 
-= Exercicio 01
+= Desenvolvimento
+Foram passados 3 exercicios para serem feitos, com dificuldade progressivas. Primeiro apenas aprendemos a fazer uma composição de um sinal. Segundo utilizamos do conhecimento do primeiro e aplicamos um filtro no sinal para recuperar os diferentes sinals misturados. Por fim o terceiro exercicio usamos um ruido branco e filtramos ele com um filtro real.
+
+== Exercicio 01
  Comando da questão:
 
   + Gerar um sinal s(t) composto pela somatória de 3 senos com amplitudes de 6V, 2V e 4V e frequências de 1, 3 e 5 kHz, respectivamente.
@@ -22,7 +27,7 @@
  + Utilizando a função 'pwelch', plote a Densidade Espectral de Potência do sinal 's'.  
 
 #pagebreak()
-== Resultados Exercicio 01
+=== Resultados Exercicio 01
 #figure(
   image("./Figuras/E1/DomTemp.svg",width:130%),
   caption: [
@@ -56,7 +61,7 @@
   A Figura 3 mostra o resultado da função pwelch, esta que retorna a densidade espectral de potência do sinal. Assim mostrando onde está a distribuição de energia do sinais nas frequência.
 
 #pagebreak()
-= Exercicio 02
+== Exercicio 02
 + Gerar um sinal s(t) composto pela somatória de 3 senos com amplitudes de 5V, 5/3V e 1V e frequências de 1, 3 e 5 kHz, respectivamente.
 + Plotar em uma figura os três cossenos e o sinal 's ' no domínio do tempo e da frequência
 + Gerar 3 filtros ideais:
@@ -67,7 +72,7 @@
 + Passar o sinal s(t) através dos 3 filtros e plotar as saídas, no domínio do tempo e da frequência, para os 3 casos
 
 #pagebreak()
-== Resultados Exercicio 02
+=== Resultados Exercicio 02
 #figure(
   image("./Figuras/E2/DomTemp.svg",width:130%),
     caption: [
@@ -101,6 +106,7 @@
 );
 Na Figura 6 são apresentados 3 filtros , em vermelho um filtro passa baixa de 2kHz , em verde um filto passa alta de 4kHz e por fim em azul um filtro passa faixa de 2 a 4 kHz.
 
+#pagebreak()
 #figure(
   image("./Figuras/E2/SinaisFiltrados.svg",width:130%), 
     caption: [
@@ -111,7 +117,7 @@ Na Figura 6 são apresentados 3 filtros , em vermelho um filtro passa baixa de 2
 Na Figura 7 é apresentado o sinal s(t) filtrado pelos 3 filtros anteriores , cada um sendo mostrado a o resultado no dominio da frequencia a esquerda e no dominio do tempo a direita
 
 #pagebreak()
-= Exercicio 03
+== Exercicio 03
 + Gerar um vetor representando um ruído com distribuição normal utilizando a função 'randn' do matlab. Gere 1 segundo de ruído considerando um tempo de amostragem de 1/10k.
 + Plotar o histograma do ruído para observar a distribuição Gaussiana. Utilizar a função 'histogram'
 + Plotar o ruído no domínio do tempo e da frequência Utilizando a função 'xcorr', plote a função de autocorrelação do ruído.
@@ -119,7 +125,7 @@ Na Figura 7 é apresentado o sinal s(t) filtrado pelos 3 filtros anteriores , ca
 + Plote, no domínio do tempo e da  frequência, a saída do filtro e o histograma do sinal filtrado
 
 #pagebreak()
-== Resultados Exercicio 03  
+=== Resultados Exercicio 03  
 #figure(
   image("./Figuras/E3/hist.svg",width:130%), 
     caption: [
@@ -178,4 +184,7 @@ Na Figura 12 é possivel ver o ruido branco no dominio do tempo e da frequência
   supplement: "Figura"
 
 );
-A figura 13 é um histograma do ruido branco após ser aplicado o filtro.
+A figura 13 é um histograma do ruido branco após ser aplicado o filtro.   
+
+= Conclusão
+Nesse labotatório possibilitou tanto a revisão conceitual de assuntos relacionados a sinais e o processamentos deles , quanto a revisar e aprender novas funções do matlab/octave.
