@@ -6,7 +6,7 @@
     subtitle: "	Sistemas de comunicação I (COM029007)",
     // Se apenas um autor colocar , no final para indicar que é um array
     authors:("Rhenzo Hideki Silva Kajikawa",),
-    date: "20 de Setembro de 2023",
+    date: "17 de março de 2024",
     doc,
   )
 = Introdução
