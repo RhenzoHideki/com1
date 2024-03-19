@@ -24,7 +24,7 @@ f = [-fs/2 : passo_f : fs/2];
   S_f = fftshift(fft(s_t) / length(s_t));
   R_f = fftshift(fft(r_t) / length(r_t));
 
-ordem_filtro = 10; % Ordem do filtro FIR
+zordem_filtro = 10; % Ordem do filtro FIR
 coeficientes_filtro = fir1(ordem_filtro, [1000 3000] * 2/fs); % Projeta o filtro passa-baixa
 
 m_t_hat = filter(coeficientes_filtro, 1, r_t); % Filtra o sinal modulado para demodulação
