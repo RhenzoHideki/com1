@@ -63,35 +63,56 @@ audiowrite('audio-b.wav',yb_t,Fs);
 figure(1)
 subplot(211);
 plot(t,sinal1);
+title("Sinal 1 - original");
 
 subplot(212);
 plot(t,sinal2);
+title("Sinal 2 - original");
 
 figure(2)
 subplot(411);
 plot(f,abs(sinal1_f));
+title("Sinal 1 - original");
 subplot(412);
 plot(f,abs(s1_f));
+title("Sinal 1 - Deslocado (Modulando)");
 
 subplot(413);
 plot(f,abs(sinal2_f));
+title("Sinal 2 - original");
 subplot(414);
 plot(f,abs(s2_f));
+title("Sinal 2 - Deslocado (Modulando");
 
 figure(3)
 subplot(211)
 plot(t,y_t);
+title("Sinal Resultante - Dominio do tempo");
 subplot(212)
 plot(f,abs(y_f));
+title("Sinal Resultante - Dominio da frequência");
 
 figure(4)
 subplot(211);
 plot(f,abs(sa_f));
+title("Sinal 1 - Deslocado (Demodulando)");
 subplot(212);
 plot(f,abs(sb_f));
+title("Sinal 2 - Deslocado (Demodulando)");
 
 figure(5)
-subplot(211);
+subplot(411);
+plot(f,abs(sinal1_f));
+title("Sinal 1 - original");
+
+subplot(412);
 plot(f,abs(ya_f));
-subplot(212);
+title("Sinal 1 - Pós demodulado");
+
+subplot(413);
+plot(f,abs(sinal2_f));
+title("Sinal 2 - original");
+
+subplot(414);
 plot(f,abs(yb_f));
+title("Sinal 2 - Pós demodulado");

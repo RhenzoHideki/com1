@@ -68,15 +68,18 @@ s1_pb_f = s1_f .* filtro_pb1;
 s2_pb_f = s2_f .* filtro_pb2;
 s3_pb_f = s3_f .* filtro_pb3;
 
-y_f =  s1_pb_f + s2_pb_f + s3_pb_f;7
+y_f =  s1_pb_f + s2_pb_f + s3_pb_f;
 
-%filtro_pf = [zeros(1, 69e3) ones(1,42001) zeros(1, 69e3)];
-%filtro_pa = [ones(1, 67e3) zero(1,46001) ones(1, 67e3)];
+y_t = ifft(ifftshift(y_f)) * length(y_f);
+
+filtro_pf = [zeros(1, 69e3) ones(1,2000) zeros(1,38001) ones(1,2000) zeros(1, 69e3)];
+filtro_pa = [ones(1, 68e3) zeros(1,44001) ones(1, 68e3)];
 
 
-y1_f = y_f .* filtro_pb1 ;
-%y2_f = .* filtro_pb1 ;
-%y3_f = .* filtro_pb1 ;
+y1_f = y_f .* filtro_pb1;
+y2_f = y_f .* filtro_pf;
+y3_f = y_f .* filtro_pa;
+
 %Subplot X3
 subplot(3,2,5);
 plot(t,x3_t,"b")
@@ -84,15 +87,34 @@ title("x_3(t)");
 xlim([0 3*T])
 
 y1_fs = ifftshift(y1_f);
-y1_t = ifft(y1_fs)/length(y1_fs);
+y1_t = ifft(y1_fs)*length(y1_fs);
+
+y2_fs = ifftshift(y2_f);
+y2_t = ifft(y2_fs)*length(y2_fs);
+
+y3_fs = ifftshift(y3_f);
+y3_t = ifft(y3_fs)*length(y3_fs);
+
 y1_t = c1_t .* y1_t;
+y2_t = c2_t .* y2_t;
+y3_t = c3_t .* y3_t;
 
 filtro = fir1(50, (1000*2)/fs);
+
 y1_t = filter(filtro, 1, y1_t);
+y2_t = filter(filtro, 1, y2_t);
+y3_t = filter(filtro, 1, y3_t);
 
 
 y1_f = fft(y1_t)/length(y1_t);
 y1_f = fftshift(y1_f);
+
+y2_f = fft(y2_t)/length(y2_t);
+y2_f = fftshift(y2_f);
+
+y3_f = fft(y3_t)/length(y3_t);
+y3_f = fftshift(y3_f);
+
 
 
 % Plot no Dominio do tempo
@@ -185,8 +207,13 @@ title("S_3(f)");
 xlim([-2*fc_3 2*fc_3])
 
 figure(5)
+subplot(211)
 plot(f,abs(y_f))
 xlim([-2*fc_3 2*fc_3])
+subplot(212)
+plot(t,y_t)
+xlim([0 3*T])
+
 
 figure(6)
 subplot(211)
@@ -194,5 +221,23 @@ plot(f,abs(y1_f))
 xlim([-2*fc_3 2*fc_3])
 subplot(212)
 plot(t,y1_t,"b")
+title("x_1(t)");
+xlim([0 3*T])
+
+figure(7)
+subplot(211)
+plot(f,abs(y2_f))
+xlim([-2*fc_3 2*fc_3])
+subplot(212)
+plot(t,y2_t,"b")
+title("x_2(t)");
+xlim([0 3*T])
+
+figure(8)
+subplot(211)
+plot(f,abs(y3_f))
+xlim([-2*fc_3 2*fc_3])
+subplot(212)
+plot(t,y3_t,"b")
 title("x_3(t)");
 xlim([0 3*T])
