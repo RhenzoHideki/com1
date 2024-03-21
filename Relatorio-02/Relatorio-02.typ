@@ -2,7 +2,7 @@
 
 
   #show: doc => article(
-    title: "Laboratorio 01",
+    title: "Laboratorio 02",
     subtitle: "	Sistemas de comunicação I (COM029007)",
     // Se apenas um autor colocar , no final para indicar que é um array
     authors:("Rhenzo Hideki Silva Kajikawa",),
@@ -11,194 +11,198 @@
   )
 
   = Introdução
-Este labotatório tem como objetivo revisar os conceitos de sinais de espectro. Tem-se como objetivo de entender e analisar os sinais nos dominios do tempo e frequência. 
+Este labotatório tem como objetivo a pratica dos diferentes modos de modulação apresentados no capitulo estudado. Estas modulações são a AM DSB-TC e AM DSB-SC.
 
-Nos exercicios apresentados foram apresentados ideias de composição e manipulação de sinais , mudança de dominios do tempo e da frequência, e a utilização de filtros ideais e reais para a recuperação dos sinais originais.
+Com isso pode-se ver a diferença entre as modulações tanto quando é tratada a soma dos diferentes sinais , quanto a transmissão do sinal e a após isso a demodulação do sinal para recupera-los.
 
 = Desenvolvimento
 == Conceitos teóricos utilizados no relatório
-A utilização de conceitos básicos de sinais e sistemas, utilizando sistmeas lineares e invariantes no tempo. A analise de sinais tanto no dominio do tempo quanto na frequencia e as suas devidas manipulações.
+Nesse laboratório foram utilizados conceitos de deslocamento e de modulações analógicas dos sinais para simular uma transmissão.
 
-A aplicação da Transformada de Fourier permite a análise de sinais no domínio da frequência, decompondo um sinal em suas componentes de frequência e possibilitando a compreensão da distribuição espectral do sinal.
+A aplicação de deslocamentos para enviar mais de um sinal em diferentes bandas de frequências. mostra a importância de modular o sinal.
 
-A autocorrelação desempenha um papel na análise ao identificar padrões temporais e calcular a similaridade entre diferentes partes do sinal.
-
-Os filtros são utilizados para observar características e aplicações dos sinais, modificando suas características, atenuando certas frequências ou realçando outras.
-
+A utilização de filtros permite que quando fosse enviado ou quando fosse demodulado o sinal , não houve interferência de sinais entre si.
 == Exercicio 01
  Comando da questão:
-
-  + Gerar um sinal s(t) composto pela somatória de 3 senos com amplitudes de 6V, 2V e 4V e frequências de 1, 3 e 5 kHz, respectivamente.
-
-  + Plotar em uma figura os três cossenos e o sinal 's ' no domínio do tempo e da frequência.
-
-  + Utilizando a função 'norm', determine a potência média do sinal 's'.
-
- + Utilizando a função 'pwelch', plote a Densidade Espectral de Potência do sinal 's'.  
++ Realizar um processo de modulação AM DSB e AM DSB-SC
++ Para o caso da modulação AM DSB-SC, realizar o processo de demodulação utilizando a função 'fir1'
++ Para o caso da modulaçao AM DSB, variar o 'fator de modulação' (0.25; 0.5; 0.75 e 1 e 1.5) e observar os efeitos no sinal modulado
 
 #pagebreak()
 === Resultados Exercicio 01
 #figure(
-  image("./Figuras/E1/DomTemp.svg",width:130%),
+  image("./Figuras/E1/SinalEPortadora.svg",width:100%),
   caption: [
-     Sinais gerados no dominio do tempo \ Fonte: Elaborada pelo autor
+     Sinais gerados para a questão \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
 );
 
-  Na Figura 1 são apresentados os 4 gráficos que foram pedidos pela questão. Estes estão sendo apresentados no dominio do tempo.
-  Os graficos são cossenos de 6V , 2V e 4V e frequências de 1, 3 e 5 kHz , respectivamente, além do sinal $s(t)$ que foi gerado a partir da soma dos 3 cossenos anteriores 
-
+A figura mostras os sinais $m(t)$ o sinal transmitido em vermelho , e $c(t)$ a portadora em verde.
 
 #figure(
-  image("./Figuras/E1/DomFreq.svg",width:130%),
+  image("./Figuras/E1/dsb-sc.svg",width:90%),
   caption: [
-     Sinais gerados no dominio da frequência \ Fonte: Elaborada pelo autor
+     Sinais utilizando modulação AM DSC-SC\ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
 );
 
-  Na Figura 2 são apresentados os 4 sinais anteriores da Figura 1 , porém agora foram apresentados no dominio da frequência. É possível ver de forma mais clara que o 4 sinal ($s(t)$) é o resultado da soma dos outros 3 sinais ,apenas analizando as componentes da frequencia.
+A figura mostra a modulação feita no sinal utilizando AM DSB-SC 
+
 #figure(
-  image("./Figuras/E1/pwelch.svg",width:90%),
-    caption: [
-     Sinais gerados com a função pwelch \ Fonte: Elaborada pelo autor
+  image("./Figuras/E1/025-dsb-tc.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 0.25\ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+#figure(
+  image("./Figuras/E1/050-dsb-tc.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 0.5\ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+#figure(
+  image("./Figuras/E1/075-dsb-tc.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 0.75\ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+#figure(
+  image("./Figuras/E1/100-dsb-tc.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 1.00\ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+#figure(
+  image("./Figuras/E1/125-dsb-tc.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 1.25\ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
 );
 
-  
-  A Figura 3 mostra o resultado da função pwelch, esta que retorna a densidade espectral de potência do sinal. Assim mostrando onde está a distribuição de energia do sinais nas frequência.
+Da figura 3 a 7 temos 5 modulações AM DSB-TC , porém a diferença entre elas é o fator de modulação que foi alterado em cada um, variando de 0.25 até 1.25 incrementando 0.25 cada vez. Nesses gráficos é possivel observar os efeitos dessas variações alterando o valor da banda do sinal localizado no meio das frequencia
+
+#figure(
+  image("./Figuras/E1/025-dsb-tc-filtrado.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 0.25\ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+#figure(
+  image("./Figuras/E1/050-dsb-tc-filtrado.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 0.5\ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+#figure(
+  image("./Figuras/E1/075-dsb-tc-filtrado.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 0.75\ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+#figure(
+  image("./Figuras/E1/100-dsb-tc-filtrado.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 1.00\ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+#figure(
+  image("./Figuras/E1/125-dsb-tc-filtrado.svg",width:90%),
+  caption: [
+     Sinais utilizando modulação AM DSC-TC com fator 1.25\ Fonte: Elaborada pelo autor
+  ],
+  supplement: "Figura"
+);
+Da figura 8 a 12 temos 5 modulações AM DSB-TC são os sinais restaurados. São todos sinais restaurados que passaram por um filtro e osciladores para restarar o sinal o mais próximo do original.  
 
 #pagebreak()
 == Exercicio 02
-+ Gerar um sinal s(t) composto pela somatória de 3 senos com amplitudes de 5V, 5/3V e 1V e frequências de 1, 3 e 5 kHz, respectivamente.
-+ Plotar em uma figura os três cossenos e o sinal 's ' no domínio do tempo e da frequência
-+ Gerar 3 filtros ideais:
-  + Passa baixa (frequência de corte em 2kHz)
-  + Passa alta (banda de passagem acima de 4kHz)
-  + Passa faixa (banda de passagem entre 2 e 4kHz)
-+ Plotar em uma figura a resposta em frequência dos 3 filtros
-+ Passar o sinal s(t) através dos 3 filtros e plotar as saídas, no domínio do tempo e da frequência, para os 3 casos
+Comando da questão:
++ Gerar 3 sinais (cosenos) nas frequências 1k, 2k e 3k
++ Realizar a multiplexação dos sinais para as frequências 10k,12k e 14k para a transmissão em um canal de comunicação
++ Recuperar os sinais originais
 
 #pagebreak()
 === Resultados Exercicio 02
 #figure(
-  image("./Figuras/E2/DomTemp.svg",width:130%),
+  image("./Figuras/E2/sinais.svg",width:130%),
     caption: [
-     Sinais gerados no dominio do tempo \ Fonte: Elaborada pelo autor
+     Sinais gerados no dominio do tempo e da frequência \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
   
 );
-  Na Figura 4 são apresentados os 4 gráficos que foram pedidos pela questão. Estes estão sendo apresentados no dominio do tempo.
-  Os graficos são cossenos de 5V , $5/3$V e 1V e frequências de 1, 3 e 5 kHz , respectivamente, além do sinal $s(t)$ que foi gerado a partir da soma dos 3 cossenos anteriores 
-
-
+A figura 13 são os 3 sinais gerados pedidos pela questão , sendo o lado esquedo da imagem o domínio do tempo e na esquerda no domínio da frequência. Já as cores representa o mesmo sinal nos diferentes domínios.
 
 #figure(
-  image("./Figuras/E2/DomFreq.svg",width:130%),
+  image("./Figuras/E2/sinaisDeslocados.svg",width:100%),
     caption: [
-     Sinais gerados no dominio da frequência \ Fonte: Elaborada pelo autor
+     Sinais Deslocados \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
+  
 );
-
-  Na Figura 5 são apresentados os 4 sinais anteriores da Figura 4 , porém agora foram apresentados no dominio da frequência. É possível ver de forma mais clara que o 4 sinal ($s(t)$) é o resultado da soma dos outros 3 sinais ,apenas analizando as componentes da frequencia.
+Nessa figura foi deslocado os sinais. O sinal de 1 kHz foi deslocado em 10kHz , o sinal de 2kHz foi deslocado em 12 KHz, o sinal de 3kHz foi deslocado em 14 kHz.
 
 #figure(
-  image("./Figuras/E2/Filtros.svg",width:130%),
+  image("./Figuras/E2/SinalFiltradoMeiaBanda.svg",width:100%),
     caption: [
-     Graficos dos Filtros  \ Fonte: Elaborada pelo autor
+     Sinais Deslocados e meia banda \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
-
+  
 );
-Na Figura 6 são apresentados 3 filtros , em vermelho um filtro passa baixa de 2kHz , em verde um filto passa alta de 4kHz e por fim em azul um filtro passa faixa de 2 a 4 kHz.
-
-#pagebreak()
-#figure(
-  image("./Figuras/E2/SinaisFiltrados.svg",width:130%), 
-    caption: [
-     Sinais Filtrados em ambos dominios \ Fonte: Elaborada pelo autor
-  ],
-  supplement: "Figura"
-);
-Na Figura 7 é apresentado o sinal s(t) filtrado pelos 3 filtros anteriores , cada um sendo mostrado a o resultado no dominio da frequencia a esquerda e no dominio do tempo a direita
-
-#pagebreak()
-== Exercicio 03
-+ Gerar um vetor representando um ruído com distribuição normal utilizando a função 'randn' do matlab. Gere 1 segundo de ruído considerando um tempo de amostragem de 1/10k.
-+ Plotar o histograma do ruído para observar a distribuição Gaussiana. Utilizar a função 'histogram'
-+ Plotar o ruído no domínio do tempo e da frequência Utilizando a função 'xcorr', plote a função de autocorrelação do ruído.
-+ Utilizando a função 'filtro=fir1(50,(1000*2)/fs)', realize uma operação de filtragem passa baixa do ruído. Para visualizar a resposta em frequência do filtro projetado, utilize a função 'freqz'.
-+ Plote, no domínio do tempo e da  frequência, a saída do filtro e o histograma do sinal filtrado
-
-#pagebreak()
-=== Resultados Exercicio 03  
-#figure(
-  image("./Figuras/E3/hist.svg",width:130%), 
-    caption: [
-     Histograma gerado pelo randn \ Fonte: Elaborada pelo autor
-  ],
-  supplement: "Figura"
-);
-Figura 8 mostra o histograma gerado por um randn , com intuito de simular um ruido branco.
+Nessa figura os sinais deslocados tiveram metade de sua banda filtrada antes de serem somados no sinal final.
 
 #figure(
-  image("./Figuras/E3/domTempFreq.svg",width:130%), 
+  image("./Figuras/E2/SinaisSomados.svg",width:100%),
     caption: [
-     Sinais Filtrados em ambos dominios \ Fonte: Elaborada pelo autor
+     Sinais Deslocados e meia banda \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
-
+  
 );
-A figura 9 mostra o ruido branco gerado pelo rand , tanto no dominio do tempo quanto no dominio da frequencia.
-
-
+Nessa figura foram somados os 3 sinais. Mostrando encima o sinal no domínio do tempo e em baixo no domínio da frequência.
 #figure(
-  image("./Figuras/E3/xcorr.svg",width:130%), 
+  image("./Figuras/E2/sinalRecuperado1k.svg",width:80%),
     caption: [
-     Grafico gerado pelo xcorr \ Fonte: Elaborada pelo autor
+     Sinais de 1kHz recuperado \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
+  
 );
-Na figura 10 é mostrado o resultado gerado pela função xcorr, seu intuito é de calcular a relação cruzada do sinal.
-
 #figure(
-  image("./Figuras/E3/filtro.svg",width:130%), 
+  image("./Figuras/E2/sinalRecuperado2k.svg",width:80%),
     caption: [
-     Gráfico dos filtros \ Fonte: Elaborada pelo autor
+     Sinais de 2kHz recuperado \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
-
+  
 );
-Figura 11 mostra como é o comportamento do filtro passa baixa que geramos com base no comando 'filtro=fir1(50,(1000*2)/fs)'. 
-
 #figure(
-  image("./Figuras/E3/SinalFiltrado.svg",width:130%), 
+  image("./Figuras/E2/sinalRecuperado3k.svg",width:80%),
     caption: [
-     Sinal Filtrado \ Fonte: Elaborada pelo autor
+     Sinais de 3kHz recuperado \ Fonte: Elaborada pelo autor
   ],
   supplement: "Figura"
-
+  
 );
 
-Na Figura 12 é possivel ver o ruido branco no dominio do tempo e da frequência após aplicarmos o filtro passa baixo no ruido.
+As figuras 17,18 e 19 são os sinais recuperados a partir do sinal resultante da soma dos 3 sinais deslocados e filtrados em meia banda. Sendo esses recupedos da mesma forma , passando pelos deslocamentos que sofreram anteriormente e sendo filtrados.
 
-#figure(
-  image("./Figuras/E3/histFiltrado.svg",width:130%), 
-    caption: [
-     Histograma do sinal filtrado \ Fonte: Elaborada pelo autor
-  ],
-  supplement: "Figura"
 
-);
-A figura 13 é um histograma do ruido branco após ser aplicado o filtro.   
 
 = Conclusão
-Neste laboratório, foram explorados conceitos fundamentais de sinais e sistemas, com a aplicação prática na análise e manipulação de sinais nos domínios do tempo e da frequência. Através dos exercícios realizados, foi possível compreender a composição de sinais complexos, a importância da amostragem e taxa de amostragem, bem como o papel crucial da Transformada de Fourier na análise espectral de sinais.
+A prática realizada neste laboratório proporcionou uma compreensão mais profunda sobre as modulações AM, principalmente DSB-TC e DSB-SC. Através da simulação de transmissões e demodulações, foi possível observar as diferenças entre essas modulações, tanto na soma dos sinais quanto na transmissão e recuperação dos mesmos. 
 
-Os resultados obtidos nos exercícios demonstraram a aplicação prática dos conceitos teóricos estudados. A visualização dos sinais no domínio do tempo e da frequência, juntamente com a análise da densidade espectral de potência, proporcionou uma compreensão mais profunda da distribuição de energia dos sinais nas diferentes frequências. A aplicação dos filtros ideais e a análise dos sinais filtrados destacaram a importância dos filtros na manipulação e recuperação de sinais originais, ressaltando a necessidade de escolher o filtro adequado para cada aplicação.
-
-Desta forma o laboratório foi essencial para solidificar o entendimento sobre sinais e sistemas, proporcionando uma base sólida para a análise e processamento de sinais em diversas aplicações. O conhecimento adquirido neste laboratório é fundamental para futuros estudos e aplicações práticas no campo da engenharia de sistemas e processamento de sinais.
+A utilização de filtros mostrou-se essencial para evitar interferências entre os sinais durante a transmissão e demodulação. Os resultados dos exercícios demonstraram claramente os efeitos da variação do fator de modulação na modulação AM DSB-TC, alterando a banda do sinal e sua frequência central. Além disso, a multiplexação de sinais e sua recuperação demonstraram a viabilidade e eficácia desses métodos em sistemas de comunicação.
