@@ -1,7 +1,6 @@
-#import "../typst-ifsc/templates/article.typ": article
+#import "@preview/klaro-ifsc-sj:0.1.0": report
 
-
-#show: doc => article(
+#show: doc => report(
   title: "Relatório 03",
   subtitle: "	Sistemas de comunicação I (COM029007)",
   // Se apenas um autor colocar , no final para indicar que é um array

@@ -2,31 +2,34 @@ clear all;
 close all;
 clc;
 
-Ac = 1;
-Am = 1;
 
-fm = 15e3;
-fc = 150e3;
-fs = 20.*fc;
-kf = 75e3
 
-df = 75e3
+Am = 1;  % Amplitude da mensagem
+fm = 10e3;  % Frequência da mensagem
+T = 1 / fm;  % Período da mensagem
 
-beta = 5;
+Ac = 1;  % Amplitude da portadora
+fc = 150e3;  % Frequência da portadora
 
-Ts = 1/fs;
-T = 1/fm;
-t_final = 1;
-t = [0:Ts:t_final];
+kf = 75e3;  % Sensibilidade de frequência
 
+
+delta_f = kf * Am;  % Desvio de frequência
+beta = delta_f / fm;  % Índice de modulação
+
+fs = 50 * fc;  % Frequência de amostragem
+Ts = 1 / fs;  % Período de amostragem
+t = 0:Ts:1-Ts;  % Eixo do tempo
 
 passo_f = 1;
-f = [ -fs/2:fs/2];
+f = [ -fs/2:(fs/2-1) ];
 
 m_t = Am.*cos(2.*fm.*pi.*t);
 c_t = Ac.*cos(2.*fc.*pi.*t);
 
-s_t = Ac.*cos(2*pi*fc*t + 2*pi*kf*cumsum(m_t));
+k0 = 2*pi*kf;
+
+s_t = Ac.*cos(2*pi*fc*t + Ts*k0*cumsum(m_t));
 
 % derivada_FM = [diff(s_t) 0]*fs;
 % s_t_demod = derivada_FM/(2*pi*kf)
@@ -61,11 +64,17 @@ subplot(313);
 plot(f,S_f);
 xlim([-2*fc 2*fc]);
 
-derivada_FM = [diff(s_t) 0]*fs;
+derivada_FM = [0 diff(s_t)]*fs;
 y_t = derivada_FM/(2*pi*kf);
 
+Y_f = fftshift(fft(y_t)/length(y_t));
+
 figure(3)
+subplot(211)
 plot(t,y_t);
 xlim([0 3*T]);
 hold on;
 plot(t,m_t,'r')
+subplot(212);
+plot(f,Y_f);
+xlim([-2*fc 2*fc]);
